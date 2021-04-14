@@ -36,7 +36,7 @@ app.use(charactersRoute);
 const userRoute = require("./routes/user");
 app.use(userRoute);
 
-//Erreur
+//Error
 app.all("*", (req, res) => {
   res.status(404).json({ message: "Cette route n'existe pas" });
 });

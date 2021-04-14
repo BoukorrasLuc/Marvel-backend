@@ -1,20 +1,19 @@
 // import mongoose
 const mongoose = require("mongoose");
 
-//import user
+// Models import
 const User = require("../models/User");
 
 const isAuthenticated = async (req, res, next) => {
   try {
-    // S'assurer qu'il y a un token
+    // Make sure there is a token
     if (req.headers.authorization) {
-      // Obtenir le token utilisateur à partir des en-têtes HTTP
+      // Obtain user token from HTTP headers
       const token = req.headers.authorization.replace("Bearer ", "");
 
-      // Trouver l'utilisateur avec le token dans la base de données et sélectionner uniquement les clés utilisateur
+      // Find the user with the token in the database and select only the user keys
       const user = await User.findOne({ token: token }).select("email token");
 
-      // Si l'utilisateur avec le token existe, suivant
       if (user) {
         req.user = user;
         return next();

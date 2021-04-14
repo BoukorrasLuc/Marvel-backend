@@ -1,13 +1,9 @@
-//Dépendance pour le serveur
+// Packages
 const express = require("express");
-
-//Dépendance pour les routes
 const router = express.Router();
-
-//Dépendance pour les requetes vers l'api
 const axios = require("axios");
 
-// Route : all comics
+// Route /all comics
 router.get("/comics", async (req, res) => {
   try {
     let limit = 100;
@@ -34,6 +30,7 @@ router.get("/comics", async (req, res) => {
   }
 });
 
+// Route /comics for character
 router.get("/comics/:characterId", async (req, res) => {
   try {
     const characterId = req.params.characterId;
@@ -46,5 +43,6 @@ router.get("/comics/:characterId", async (req, res) => {
     console.log(error);
   }
 });
-//Export de la route
+
+// ROUTE EXPORT
 module.exports = router;

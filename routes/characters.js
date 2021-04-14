@@ -1,13 +1,9 @@
-//Dépendance pour le serveur
+// Packages
 const express = require("express");
-
-//Dépendance pour les routes
 const router = express.Router();
-
-//Dépendance pour les requetes vers l'api
 const axios = require("axios");
 
-//Route : /characters
+// Route /all characters
 router.get("/characters", async (req, res) => {
   try {
     let limit = 100;
@@ -35,6 +31,5 @@ router.get("/characters", async (req, res) => {
   }
 });
 
+// Route export
 module.exports = router;
-
-//Export de la route

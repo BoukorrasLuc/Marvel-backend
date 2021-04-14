@@ -1,7 +1,7 @@
 // Packages
 const mongoose = require("mongoose");
 
-//Model de user
+// Models user
 const User = mongoose.model("User", {
   email: {
     unique: true,
@@ -9,10 +9,10 @@ const User = mongoose.model("User", {
     type: String,
   },
   username: String,
-  description: String,
   token: String,
   hash: String,
   salt: String,
 });
-//Export du model User
+
+// Export model User
 module.exports = User;
