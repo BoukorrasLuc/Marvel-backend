@@ -32,10 +32,6 @@ app.use(comicsRoute);
 const charactersRoute = require("./routes/characters");
 app.use(charactersRoute);
 
-// Route user
-const userRoute = require("./routes/user");
-app.use(userRoute);
-
 //Error
 app.all("*", (req, res) => {
   res.status(404).json({ message: "Cette route n'existe pas" });
